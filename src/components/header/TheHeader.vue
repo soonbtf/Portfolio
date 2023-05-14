@@ -12,35 +12,15 @@
 
 <script setup lang="ts">
 import { computed, watch, onMounted } from "vue";
-import { useWindowSize } from "@vueuse/core";
 import { useVariablesStore } from "@/stores/store";
 import Logo from "@/components/header/Logo.vue";
 import HeaderNav from "@/components/header/HeaderNav.vue";
 import Burger from "@/components/header/Burger.vue";
-
-const { width } = useWindowSize();
 const variablesStore = useVariablesStore();
 
 // const showMenu = computed(() => {
 //   return variablesStore.isDesktop;
 // });
-
-const checkWidth = (width: number): void => {
-  variablesStore.isDesktop = width > 900 ? true : false;
-};
-
-watch(() => width.value, checkWidth);
-watch(() => width.value, checkWidth);
-watch(
-  () => variablesStore.isDesktop,
-  (newValue, oldValue) => {
-    console.log(newValue);
-  }
-);
-
-onMounted(() => {
-  checkWidth(width.value);
-});
 </script>
 
 <style scoped lang="scss">
@@ -52,7 +32,8 @@ header {
   height: 80px;
   width: 100%;
   z-index: 1000;
-  background-color: #ffffff;
+  color: #212529;
+  // background-color: #ffffff;
   .container {
     position: relative;
     @include jcCt-aiCt;

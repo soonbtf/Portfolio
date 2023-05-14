@@ -1,7 +1,9 @@
 <template>
   <div id="container">
     <TheHeader />
-    <main></main>
+    <main>
+      <About />
+    </main>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
     </Transition>
@@ -9,18 +11,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, onMounted } from "vue";
 import { useVariablesStore } from "@/stores/store";
+import { useWindowSize } from "@vueuse/core";
 import { useWindowScroll } from "@vueuse/core";
 import TheHeader from "@/components/header/TheHeader.vue";
 import SlideMenu from "@/components/header/SlideMenu.vue";
+import About from "@/components/main/About.vue";
 
 const variablesStore = useVariablesStore();
-const { x, y } = useWindowScroll();
+const { width } = useWindowSize();
+const { y } = useWindowScroll();
+
+const checkWidth = (width: number): void => {
+  variablesStore.isDesktop = width > 768 ? true : false;
+};
+
+watch(() => width.value, checkWidth);
+watch(
+  () => variablesStore.isDesktop,
+  (newValue, oldValue) => {
+    console.log(newValue);
+  }
+);
+
+onMounted(() => {
+  checkWidth(width.value);
+});
 
 watch(
   () => y.value,
-  (newScrollHeight) => {
+  () => {
     variablesStore.menuIsOpen = false;
   }
 );
