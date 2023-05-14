@@ -1,15 +1,23 @@
 <template>
-  <div class="icon">
+  <div class="icon" @click="openMenu">
     <div class="line" v-for="div in 3"></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useVariablesStore } from "@/stores/store";
+
+const variablesStore = useVariablesStore();
+
+const openMenu = (): void => {
+  variablesStore.menuIsOpen = !variablesStore.menuIsOpen;
+};
+</script>
 
 <style scoped lang="scss">
 .icon {
-  display: flex;
-  flex-direction: column;
+  @include fdCol;
+  margin-left: auto;
   width: 35px;
   height: 100%;
   gap: 8px;

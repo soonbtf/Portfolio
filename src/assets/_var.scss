@@ -1,3 +1,8 @@
+@mixin fdCol {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin jcCt {
   display: flex;
   justify-content: center;

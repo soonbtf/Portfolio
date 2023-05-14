@@ -1,20 +1,26 @@
 <template>
   <nav>
-    <a v-for="category in categories">
+    <a v-for="category in variablesStore.categories">
       <span> {{ category }}</span>
     </a>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
+import { useVariablesStore } from "@/stores/store";
 
-const categories = ref<string[]>([
-  "ABOUT",
-  "EXPERIENCE",
-  "PROJECTS",
-  "CONTACT",
-]);
+const variablesStore = useVariablesStore();
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+nav {
+  @include jcCt-aiCt;
+  width: min-content;
+  margin-left: auto;
+  gap: 20px;
+  & a {
+    cursor: pointer;
+  }
+}
+</style>

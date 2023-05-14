@@ -2,8 +2,8 @@
   <header>
     <div class="container">
       <Logo />
-      <HeaderNav />
-      <button class="burger" v-if="!showMenu">
+      <HeaderNav v-if="variablesStore.isDesktop" />
+      <button class="burger" v-if="!variablesStore.isDesktop">
         <Burger />
       </button>
     </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { computed, watch, onMounted } from "vue";
 import { useWindowSize } from "@vueuse/core";
 import { useVariablesStore } from "@/stores/store";
 import Logo from "@/components/header/Logo.vue";
@@ -21,56 +21,53 @@ import Burger from "@/components/header/Burger.vue";
 const { width } = useWindowSize();
 const variablesStore = useVariablesStore();
 
-const showMenu = computed(() => {
-  if (variablesStore.isDesktop) return true;
-});
+// const showMenu = computed(() => {
+//   return variablesStore.isDesktop;
+// });
 
+const checkWidth = (width: number): void => {
+  variablesStore.isDesktop = width > 900 ? true : false;
+};
+
+watch(() => width.value, checkWidth);
+watch(() => width.value, checkWidth);
 watch(
-  () => width.value,
-  (newValue) => {
-    if (newValue > 900) {
-      variablesStore.isDesktop = true;
-    } else {
-      variablesStore.isDesktop = false;
-    }
+  () => variablesStore.isDesktop,
+  (newValue, oldValue) => {
+    console.log(newValue);
   }
 );
+
+onMounted(() => {
+  checkWidth(width.value);
+});
 </script>
 
 <style scoped lang="scss">
 header {
   @include jcCt-aiCt;
+  position: fixed;
   padding: 0 15px;
   min-height: 80px;
-  width: 100%;
-  background-color: #ffffff;
-}
-
-.container {
-  position: relative;
-  @include jcCt-aiCt;
-  width: 1400px;
   height: 80px;
-  & > nav {
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  .container {
+    position: relative;
     @include jcCt-aiCt;
-    width: min-content;
-    margin-left: auto;
-    gap: 20px;
-    & a {
-      cursor: pointer;
-    }
+    width: 1400px;
+    height: 80px;
   }
 }
 
 .burger {
   @include jcCt-aiCt;
   min-height: 80px;
+  flex: 1;
   width: 50px;
   border: none;
   background-color: transparent;
-  ion-icon {
-    font-size: 50px;
-  }
 }
 
 img {
