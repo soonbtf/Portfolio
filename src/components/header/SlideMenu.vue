@@ -18,7 +18,8 @@ const variablesStore = useVariablesStore();
   width: 100%;
   background-color: #ffffff;
   position: absolute;
-  padding: 100px 20px 0;
+  padding: 20px 20px 0;
+  margin-top: 80px;
   height: 100%;
   gap: 50px;
   & a {

@@ -28,12 +28,6 @@ const checkWidth = (width: number): void => {
 };
 
 watch(() => width.value, checkWidth);
-watch(
-  () => variablesStore.isDesktop,
-  (newValue, oldValue) => {
-    console.log(newValue);
-  }
-);
 
 onMounted(() => {
   checkWidth(width.value);
