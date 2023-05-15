@@ -2,7 +2,10 @@
   <header>
     <div class="container">
       <Logo />
-      <HeaderNav v-if="variablesStore.isDesktop" />
+      <nav class="navigation">
+        <ChangeLanguage />
+        <HeaderNav v-if="variablesStore.isDesktop" />
+      </nav>
       <button class="burger" v-if="!variablesStore.isDesktop">
         <Burger />
       </button>
@@ -17,6 +20,7 @@ import { useVariablesStore } from "@/stores/store";
 import { useWindowScroll } from "@vueuse/core";
 import Logo from "@/components/header/Logo.vue";
 import HeaderNav from "@/components/header/HeaderNav.vue";
+import ChangeLanguage from "@/components/header/ChangeLanguage.vue";
 import Burger from "@/components/header/Burger.vue";
 
 const { y } = useWindowScroll();
@@ -55,13 +59,18 @@ header {
     @include jcCt-aiCt;
     width: 1400px;
     height: 80px;
+    & > .navigation {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+      height: 100%;
+    }
   }
 }
 
 .burger {
   @include jcCt-aiCt;
   min-height: 80px;
-  flex: 1;
   width: 50px;
   border: none;
   background-color: transparent;

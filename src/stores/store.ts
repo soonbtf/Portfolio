@@ -4,12 +4,7 @@ import { defineStore } from "pinia";
 export const useVariablesStore = defineStore("variable", () => {
   const isDesktop = ref(true);
   const menuIsOpen = ref(false);
-  const categories = ref<string[]>([
-    "ABOUT",
-    "EXPERIENCE",
-    "PROJECTS",
-    "CONTACT",
-  ]);
+  const language = ref("EN");
 
-  return { isDesktop, menuIsOpen, categories };
+  return { isDesktop, menuIsOpen, language };
 });

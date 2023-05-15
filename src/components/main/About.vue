@@ -1,11 +1,9 @@
 <template>
   <section>
-    <p>Hi, my name is</p>
+    <p>{{ t("about.title") }}</p>
     <h2>MEHDI BIRLAKHDAR</h2>
     <p>
-      Having discovered web development in early 2022 and recently graduated, I
-      aspire to become a better developer by challenging myself on a daily
-      basis. I'm currently looking for new opportunities with Vue.js & Node.js
+      {{ t("about.introduction") }}
     </p>
     <GetInTouch />
   </section>
@@ -13,6 +11,8 @@
 
 <script setup lang="ts">
 import GetInTouch from "@/components/main/GetInTouch.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 </script>
 
 <style scoped lang="scss">

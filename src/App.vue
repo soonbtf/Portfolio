@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from "vue";
+import { watch, onMounted } from "vue";
 import { useVariablesStore } from "@/stores/store";
 import { useWindowSize } from "@vueuse/core";
 import { useWindowScroll } from "@vueuse/core";

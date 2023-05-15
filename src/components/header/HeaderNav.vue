@@ -1,41 +1,36 @@
 <template>
-  <div ref="nav">
-    <a v-for="category in variablesStore.categories">
-      <span> {{ category }}</span>
-    </a>
-  </div>
+  <nav ref="nav" :class="isMenuOpen ? 'nav--slider' : 'nav--header'">
+    <a v-for="category in categories">{{ category }}</a>
+  </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from "vue";
+import { ref, computed } from "vue";
 import { useVariablesStore } from "@/stores/store";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const variablesStore = useVariablesStore();
 const nav = ref<HTMLElement | null>(null);
 
-const defineClass = (value: boolean): void => {
-  if (value) {
-    nav.value?.classList.remove("nav--header");
-    nav.value?.classList.add("nav--slider");
-  } else {
-    nav.value?.classList.remove("nav--slider");
-    nav.value?.classList.add("nav--header");
-  }
-};
+const isMenuOpen = computed(() => {
+  return variablesStore.menuIsOpen;
+});
 
-watch(() => variablesStore.menuIsOpen, defineClass);
+const key = ["about", "experience", "projects", "contact"];
 
-onMounted(() => {
-  defineClass(variablesStore.menuIsOpen);
+const categories = computed(() => {
+  return key.map((key) => {
+    return t(`categories.${key}`);
+  });
 });
 </script>
 
 <style scoped lang="scss">
 .nav--header {
   @include jcCt-aiCt;
-  width: min-content;
-  margin-left: auto;
-  gap: 20px;
+  width: max-content;
+  gap: 30px;
 }
 .nav--slider {
   @include fdCol;
@@ -49,6 +44,8 @@ onMounted(() => {
 }
 
 a {
+  @include jcCt-aiCt;
+  flex-wrap: nowrap;
   cursor: pointer;
 }
 </style>
