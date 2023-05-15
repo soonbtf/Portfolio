@@ -1,6 +1,6 @@
 <template>
   <button>
-    <span>GET IN TOUCH</span>
+    <span> {{ $t("about.button") }}</span>
   </button>
 </template>
 

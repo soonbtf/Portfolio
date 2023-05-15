@@ -3,6 +3,7 @@
     <TheHeader />
     <main>
       <About />
+      <span class="WIP">WIP</span>
     </main>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
@@ -39,7 +40,7 @@ watch(
 onMounted(() => checkWidth(width.value));
 </script>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -55,9 +56,16 @@ onMounted(() => checkWidth(width.value));
 }
 
 main {
+  @include fdCol-aiCt;
   min-height: 1000px;
   width: 100%;
-  background-color: bisque;
+  background-color: rgb(41, 40, 40);
+  & > span {
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: "Courier New", Courier, monospace;
+    color: rgb(235, 235, 235);
+  }
 }
 #container {
   position: relative;

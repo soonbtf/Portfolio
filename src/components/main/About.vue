@@ -1,9 +1,9 @@
 <template>
   <section>
-    <p>{{ t("about.title") }}</p>
+    <p>{{ $t("about.title") }}</p>
     <h2>MEHDI BIRLAKHDAR</h2>
     <p>
-      {{ t("about.introduction") }}
+      {{ $t("about.introduction") }}
     </p>
     <GetInTouch />
   </section>
@@ -11,8 +11,6 @@
 
 <script setup lang="ts">
 import GetInTouch from "@/components/main/GetInTouch.vue";
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
 </script>
 
 <style scoped lang="scss">
