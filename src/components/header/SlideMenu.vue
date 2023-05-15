@@ -1,31 +1,15 @@
 <template>
-  <div class="container" v-if="variablesStore.menuIsOpen">
-    <a v-for="category in variablesStore.categories">
-      <span> {{ category }}</span>
-    </a>
-  </div>
+  <HeaderNav v-if="variablesStore.menuIsOpen" />
 </template>
 
 <script setup lang="ts">
 import { useVariablesStore } from "@/stores/store";
+import HeaderNav from "@/components/header/HeaderNav.vue";
 
 const variablesStore = useVariablesStore();
 </script>
 
 <style scoped lang="scss">
-.container {
-  @include fdCol;
-  width: 100%;
-  background-color: #ffffff;
-  position: absolute;
-  padding: 20px 20px 0;
-  margin-top: 80px;
-  height: 100%;
-  gap: 50px;
-  & a {
-    cursor: pointer;
-  }
-}
 .v-enter-active,
 .v-leave-active {
   transition: all 0.3s ease-in-out;
