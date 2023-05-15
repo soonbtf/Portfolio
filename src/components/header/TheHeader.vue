@@ -12,18 +12,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from "vue";
+import { ref, watch } from "vue";
 import { useVariablesStore } from "@/stores/store";
 import { useWindowScroll } from "@vueuse/core";
 import Logo from "@/components/header/Logo.vue";
 import HeaderNav from "@/components/header/HeaderNav.vue";
 import Burger from "@/components/header/Burger.vue";
-const variablesStore = useVariablesStore();
 
-// const showMenu = computed(() => {
-//   return variablesStore.isDesktop;
-// });
 const { y } = useWindowScroll();
+const variablesStore = useVariablesStore();
 const band = ref<HTMLElement | null>(null);
 
 const checkValue = (value: number | boolean): void => {
@@ -39,19 +36,8 @@ const checkValue = (value: number | boolean): void => {
   }
 };
 
-watch(
-  () => y.value,
-  (newValue) => {
-    checkValue(newValue);
-  }
-);
-
-watch(
-  () => variablesStore.menuIsOpen,
-  (newValue) => {
-    checkValue(newValue);
-  }
-);
+watch(() => y.value, checkValue);
+watch(() => variablesStore.menuIsOpen, checkValue);
 </script>
 
 <style scoped lang="scss">
@@ -64,8 +50,6 @@ header {
   width: 100%;
   z-index: 1000;
   color: #212529;
-  // color: white;
-  // background-color: #ffffff;
   .container {
     position: relative;
     @include jcCt-aiCt;

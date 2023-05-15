@@ -25,20 +25,18 @@ const { y } = useWindowScroll();
 
 const checkWidth = (width: number): void => {
   variablesStore.isDesktop = width > 768 ? true : false;
+  variablesStore.menuIsOpen = false;
 };
 
 watch(() => width.value, checkWidth);
-
-onMounted(() => {
-  checkWidth(width.value);
-});
-
 watch(
   () => y.value,
   () => {
     variablesStore.menuIsOpen = false;
   }
 );
+
+onMounted(() => checkWidth(width.value));
 </script>
 
 <style>

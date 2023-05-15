@@ -1,7 +1,7 @@
 <template>
   <section>
     <p>Hi, my name is</p>
-    <h2>MEHDI BIRLAKHDAR.</h2>
+    <h2>MEHDI BIRLAKHDAR</h2>
     <p>
       Having discovered web development in early 2022 and recently graduated, I
       aspire to become a better developer by challenging myself on a daily
@@ -21,7 +21,6 @@ section {
   padding: 120px 5% 10% 30px;
   background-color: #c1d5fa;
   color: #212529;
-  // color: #e8e8e9;
   & p {
     font-size: 1.1rem;
     line-height: 1.5rem;
