@@ -1,18 +1,17 @@
 <template>
-  <section ref="about">
+  <section id="about">
     <h2>{{ $t("about.title") }}</h2>
     <p v-for="paragraphe in paragraphes">{{ paragraphe }}</p>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useVariablesStore } from "@/stores/store";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 const variablesStore = useVariablesStore();
-const about = ref<HTMLElement | null>(null);
 const paragraphes = computed(() => {
   const result = [];
   for (let i = 1; i <= 5; i++) {
@@ -22,7 +21,7 @@ const paragraphes = computed(() => {
 });
 
 onMounted(() => {
-  variablesStore.categories.c1 = about.value;
+  variablesStore.categories.c1 = document.querySelector("#about");
 });
 </script>
 

@@ -4,7 +4,7 @@
     <main>
       <Welcome />
       <About />
-      <Project />
+      <MyWorks />
     </main>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
@@ -20,7 +20,7 @@ import TheHeader from "@/components/header/TheHeader.vue";
 import SlideMenu from "@/components/header/SlideMenu.vue";
 import Welcome from "@/components/main/Welcome.vue";
 import About from "@/components/main/About.vue";
-import Project from "@/components/main/Project.vue";
+import MyWorks from "@/components/main/MyWorks.vue";
 
 const variablesStore = useVariablesStore();
 const { width } = useWindowSize();

@@ -22,16 +22,18 @@ export const data = {
     },
     projects: {
       project1: {
-        title: "Project 1",
+        title: "TinyTeams",
         description: "Description of project 1",
+        img: "/src/assets/tinyteams.png",
         technos: {
-          t1: "Techno 1",
-          t2: "Techno 2",
-          t3: "Techno 3",
+          t1: "Vue 3",
+          t2: "Express",
+          t3: "Sequelize",
+          t4: "Socket.io",
         },
       },
       project2: {
-        title: "Project 2",
+        title: "This website",
         description: "Description of project 2",
         technos: {
           t1: "Techno 1",
@@ -65,12 +67,15 @@ export const data = {
     },
     projects: {
       project1: {
-        title: "Projet 1",
-        description: "Description du projet 1",
+        title: "TinyTeams",
+        description:
+          "TinyTeams est un réseau social d'entreprise s'inspirant du réseau social Facebook.",
+        img: "/src/assets/tinyteams.png",
         technos: {
-          t1: "Techno 1",
-          t2: "Techno 2",
-          t3: "Techno 3",
+          t1: "Vue 3",
+          t2: "Express",
+          t3: "Sequelize",
+          t4: "Socket.io",
         },
       },
       project2: {

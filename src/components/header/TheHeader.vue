@@ -93,7 +93,7 @@ header {
   width: 100%;
   height: 80px;
   background-color: #ffffff;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   transition: 300ms ease-in-out;
   width: 0;
   z-index: -2;

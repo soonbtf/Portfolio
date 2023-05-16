@@ -18,13 +18,18 @@ section {
   @include fdCol;
   width: 100%;
   padding: 120px 5% 10% 30px;
-  background: rgb(200, 197, 250);
   background: linear-gradient(
     90deg,
-    rgba(200, 197, 250, 1) 0%,
+    rgb(211, 171, 183) 0%,
     rgba(197, 194, 247, 1) 50%,
     rgba(122, 140, 231, 1) 100%
   );
+  // background: linear-gradient(
+  //   90deg,
+  //   rgb(244, 217, 247) 0%,
+  //   rgb(199, 194, 247) 50%,
+  //   rgb(122, 187, 231) 100%
+  // );
   color: #212529;
   & p {
     font-size: 1.1rem;
