@@ -17,12 +17,12 @@ const isMenuOpen = computed(() => {
   return variablesStore.menuIsOpen;
 });
 
-const key = ["about", "experience", "projects", "contact"];
-
 const categories = computed(() => {
-  return key.map((key) => {
-    return t(`categories.${key}`);
-  });
+  const result = [];
+  for (let i = 1; i <= 4; i++) {
+    result.push(t(`categories.c${i}`));
+  }
+  return result;
 });
 </script>
 
@@ -36,10 +36,10 @@ const categories = computed(() => {
   @include fdCol;
   width: 100%;
   background-color: #ffffff;
-  position: absolute;
+  position: fixed;
   padding: 20px 20px 0;
-  margin-top: 80px;
   height: 100%;
+  margin-top: 80px;
   gap: 50px;
 }
 

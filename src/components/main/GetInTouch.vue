@@ -1,6 +1,6 @@
 <template>
   <button>
-    <span> {{ $t("about.button") }}</span>
+    <span> {{ $t("welcome.button") }}</span>
   </button>
 </template>
 

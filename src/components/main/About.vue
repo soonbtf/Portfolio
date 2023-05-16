@@ -1,48 +1,39 @@
 <template>
   <section>
-    <p>{{ $t("about.title") }}</p>
-    <h2>MEHDI BIRLAKHDAR</h2>
-    <p>
-      {{ $t("about.introduction") }}
-    </p>
-    <GetInTouch />
+    <h2>{{ $t("about.title") }}</h2>
+    <p v-for="paragraphe in paragraphes">{{ paragraphe }}</p>
   </section>
 </template>
 
 <script setup lang="ts">
-import GetInTouch from "@/components/main/GetInTouch.vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const paragraphes = computed(() => {
+  const result = [];
+  for (let i = 1; i <= 5; i++) {
+    result.push(t(`about.introduction.p${i}`));
+  }
+  return result;
+});
 </script>
 
 <style scoped lang="scss">
 section {
   @include fdCol;
-  padding: 120px 5% 10% 30px;
-  background-color: #c1d5fa;
-  color: #212529;
-  & p {
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    margin-bottom: 1rem;
+  max-width: 1000px;
+  gap: 20px;
+  margin: 100px 0 0 0;
+  padding: 0 40px;
+  h2 {
+    font-size: 45px;
+    font-weight: 800;
+    color: rgb(90, 102, 170);
   }
-  & h2 {
-    font-size: 3.5rem;
-    line-height: 3.5rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  section {
-    padding-right: 5%;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  section {
-    padding-left: 20%;
-    padding-right: 15%;
-    padding-bottom: 5%;
+  p {
+    font-size: 14px;
+    line-height: 2rem;
   }
 }
 </style>

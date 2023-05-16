@@ -2,8 +2,8 @@
   <div id="container">
     <TheHeader />
     <main>
+      <Welcome />
       <About />
-      <span class="WIP">WIP</span>
     </main>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
@@ -14,10 +14,10 @@
 <script setup lang="ts">
 import { watch, onMounted } from "vue";
 import { useVariablesStore } from "@/stores/store";
-import { useWindowSize } from "@vueuse/core";
-import { useWindowScroll } from "@vueuse/core";
+import { useWindowSize, useWindowScroll } from "@vueuse/core";
 import TheHeader from "@/components/header/TheHeader.vue";
 import SlideMenu from "@/components/header/SlideMenu.vue";
+import Welcome from "@/components/main/Welcome.vue";
 import About from "@/components/main/About.vue";
 
 const variablesStore = useVariablesStore();
@@ -50,7 +50,6 @@ onMounted(() => checkWidth(width.value));
 
 #app {
   min-height: 100vh;
-  background-color: #272727;
   flex-direction: column;
   position: relative;
 }
@@ -59,7 +58,6 @@ main {
   @include fdCol-aiCt;
   min-height: 1000px;
   width: 100%;
-  background-color: rgb(41, 40, 40);
   & > span {
     margin-top: 200px;
     font-size: 50px;

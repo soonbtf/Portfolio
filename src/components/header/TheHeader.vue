@@ -29,14 +29,24 @@ const band = ref<HTMLElement | null>(null);
 
 const checkValue = (value: number | boolean): void => {
   if (typeof value === "number") {
-    value === 0
-      ? band.value?.classList.remove("colorBandWidth")
-      : band.value?.classList.add("colorBandWidth");
-  } else {
-    if (y.value !== 0) return;
-    value
-      ? band.value?.classList.add("colorBandWidth")
-      : band.value?.classList.remove("colorBandWidth");
+    const scrollToTop = value;
+    if (scrollToTop !== 0) {
+      if (band.value) band.value.classList.add("colorBandWidth");
+    } else {
+      if (band.value) band.value.classList.remove("colorBandWidth");
+    }
+  } else if (typeof value === "boolean") {
+    const isMenuOpen = value;
+    const scrollToTop = y.value;
+    if (band.value) {
+      if (isMenuOpen) {
+        band.value.style.boxShadow = "none";
+        band.value.classList.add("colorBandWidth");
+      } else {
+        band.value.style.boxShadow = "0 0 10px 0 rgba(0, 0, 0, 0.2)";
+        if (scrollToTop === 0) band.value.classList.remove("colorBandWidth");
+      }
+    }
   }
 };
 
@@ -83,7 +93,7 @@ header {
   width: 100%;
   height: 80px;
   background-color: #ffffff;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   transition: 300ms ease-in-out;
   width: 0;
   z-index: -1;
@@ -91,6 +101,5 @@ header {
 
 .colorBandWidth {
   width: 100%;
-  box-shadow: none;
 }
 </style>
