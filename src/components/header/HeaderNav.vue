@@ -62,7 +62,6 @@ const categories = computed(() => {
       bottom: -5px;
       height: 0;
       z-index: 1;
-      // background: linear-gradient(90deg, rgb(45, 161, 239), rgb(36, 60, 80));
       background: linear-gradient(90deg, rgb(106, 167, 207), rgb(57, 104, 165));
       transition: all 0.3s ease 0s;
       z-index: -1;

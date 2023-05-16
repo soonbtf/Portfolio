@@ -37,6 +37,7 @@ export const data = {
           t1: "Techno 1",
           t2: "Techno 2",
           t3: "Techno 3",
+          t4: "Techno 4",
         },
       },
     },

@@ -3,41 +3,30 @@
     <h2 class="project__title">{{ project.name }}</h2>
     <p class="project__descp">{{ project.description }}</p>
     <ul class="project__techno">
-      <li></li>
+      <li v-for="techno in project.technos">{{ techno }}</li>
     </ul>
   </article>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { computed } from "vue";
+import { data } from "@/assets/i18n";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 const projects = computed(() => {
-  const result = [];
-  for (let i = 1; i <= 2; i++) {
-    result.push({
-      name: t(`projects.project${i}.title`),
-      description: t(`projects.project${i}.description`),
-    });
-  }
-  return result;
+  return Object.keys(data.en.projects).map((projectKey) => {
+    const project =
+      data.en.projects[projectKey as keyof typeof data.en.projects];
+    return {
+      name: t(`projects.${projectKey}.title`),
+      description: t(`projects.${projectKey}.description`),
+      technos: Object.keys(project.technos).map((technoKey) =>
+        t(`projects.${projectKey}.technos.${technoKey}`)
+      ),
+    };
+  });
 });
-
-function test() {
-  console.log(t(`projects.project1.technos.t1`));
-}
-
-test();
-// const technosProject = computed(() => {
-//   const result = [];
-//   for (let i = 1; i <= 2; i++) {
-//     result.push({
-//       name: t(`projects.project${i}.techno`),
-//     });
-//   }
-//   return result;
-// });
 </script>
 
 <style scoped></style>
