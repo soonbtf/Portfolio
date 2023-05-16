@@ -18,7 +18,13 @@ section {
   @include fdCol;
   width: 100%;
   padding: 120px 5% 10% 30px;
-  background-color: #c1d5fa;
+  background: rgb(200, 197, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(200, 197, 250, 1) 0%,
+    rgba(197, 194, 247, 1) 50%,
+    rgba(122, 140, 231, 1) 100%
+  );
   color: #212529;
   & p {
     font-size: 1.1rem;

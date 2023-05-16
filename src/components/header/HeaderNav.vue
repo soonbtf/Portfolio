@@ -1,6 +1,8 @@
 <template>
-  <nav ref="nav" :class="isMenuOpen ? 'nav--slider' : 'nav--header'">
-    <a v-for="category in categories">{{ category }}</a>
+  <nav :class="isMenuOpen ? 'nav--slider' : 'nav--header'">
+    <a @click="scrollTo(category)" v-for="category in categories">{{
+      category
+    }}</a>
   </nav>
 </template>
 
@@ -16,6 +18,18 @@ const nav = ref<HTMLElement | null>(null);
 const isMenuOpen = computed(() => {
   return variablesStore.menuIsOpen;
 });
+
+const scrollTo = (el: string): void => {
+  // https://www.w3schools.com/typescript/typescript_keyof.php
+  //
+  const element = el.toLowerCase() as keyof typeof variablesStore.categories;
+  const htmlElement = variablesStore.categories[element];
+  htmlElement?.scrollIntoView({
+    behavior: "smooth",
+    inline: "start",
+    block: "end",
+  });
+};
 
 const categories = computed(() => {
   const result = [];

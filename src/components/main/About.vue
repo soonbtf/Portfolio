@@ -1,21 +1,28 @@
 <template>
-  <section>
+  <section ref="about">
     <h2>{{ $t("about.title") }}</h2>
     <p v-for="paragraphe in paragraphes">{{ paragraphe }}</p>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useVariablesStore } from "@/stores/store";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
+const variablesStore = useVariablesStore();
+const about = ref<HTMLElement | null>(null);
 const paragraphes = computed(() => {
   const result = [];
   for (let i = 1; i <= 5; i++) {
     result.push(t(`about.introduction.p${i}`));
   }
   return result;
+});
+
+onMounted(() => {
+  variablesStore.categories.about = about.value;
 });
 </script>
 
