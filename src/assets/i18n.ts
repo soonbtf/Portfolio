@@ -2,9 +2,8 @@ export const data = {
   en: {
     categories: {
       c1: "ABOUT",
-      c2: "EXPERIENCE",
-      c3: "PROJECTS",
-      c4: "CONTACT",
+      c2: "PROJECTS",
+      c3: "CONTACT",
     },
     welcome: {
       title: "Hi, my name is",
@@ -21,13 +20,32 @@ export const data = {
         p5: "Don't hesitate to contact me!",
       },
     },
+    projects: {
+      project1: {
+        title: "Project 1",
+        description: "Description of project 1",
+        technos: {
+          t1: "Techno 1",
+          t2: "Techno 2",
+          t3: "Techno 3",
+        },
+      },
+      project2: {
+        title: "Project 2",
+        description: "Description of project 2",
+        technos: {
+          t1: "Techno 1",
+          t2: "Techno 2",
+          t3: "Techno 3",
+        },
+      },
+    },
   },
   fr: {
     categories: {
       c1: "À PROPOS",
-      c2: "EXPÉRIENCE",
-      c3: "PROJETS",
-      c4: "CONTACT",
+      c2: "PROJETS",
+      c3: "CONTACT",
     },
     welcome: {
       title: "Bonjour, je suis",
@@ -42,6 +60,26 @@ export const data = {
         p3: "Au travers mes divers projets, j'ai compris que tout connaître n'était pas un objectif mais une vocation pour progresser constamment dans un domaine aux possibilités et à l'évolution infinies.",
         p4: "Étant à la recherche d'une première expérience et conscient de tout le chemin que j'ai à parcourir, je suis ouvert à toute opportunité, à tout échange car je suis persuadé que chacun d'entre eux me permettra de m'améliorer.",
         p5: "N'hésitez pas à me contacter !",
+      },
+    },
+    projects: {
+      project1: {
+        title: "Projet 1",
+        description: "Description du projet 1",
+        technos: {
+          t1: "Techno 1",
+          t2: "Techno 2",
+          t3: "Techno 3",
+        },
+      },
+      project2: {
+        title: "Projet 2",
+        description: "Description du projet 2",
+        technos: {
+          t1: "Techno 1",
+          t2: "Techno 2",
+          t3: "Techno 3",
+        },
       },
     },
   },

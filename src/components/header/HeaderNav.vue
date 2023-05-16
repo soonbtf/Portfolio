@@ -1,7 +1,7 @@
 <template>
   <nav :class="isMenuOpen ? 'nav--slider' : 'nav--header'">
-    <a @click="scrollTo(category)" v-for="category in categories">{{
-      category
+    <a @click="scrollTo(category.key)" v-for="category in categories">{{
+      category.value
     }}</a>
   </nav>
 </template>
@@ -21,20 +21,21 @@ const isMenuOpen = computed(() => {
 
 const scrollTo = (el: string): void => {
   // https://www.w3schools.com/typescript/typescript_keyof.php
-  //
   const element = el.toLowerCase() as keyof typeof variablesStore.categories;
   const htmlElement = variablesStore.categories[element];
   htmlElement?.scrollIntoView({
     behavior: "smooth",
-    inline: "start",
-    block: "end",
+    block: "start",
   });
 };
 
 const categories = computed(() => {
   const result = [];
-  for (let i = 1; i <= 4; i++) {
-    result.push(t(`categories.c${i}`));
+  for (let i = 1; i <= 3; i++) {
+    result.push({
+      key: `c${i}`,
+      value: t(`categories.c${i}`),
+    });
   }
   return result;
 });
@@ -45,6 +46,31 @@ const categories = computed(() => {
   @include jcCt-aiCt;
   width: max-content;
   gap: 30px;
+  a {
+    position: relative;
+    @include jcCt-aiCt;
+    flex-wrap: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: white;
+    }
+    &::before {
+      content: "";
+      width: 110%;
+      position: absolute;
+      bottom: -5px;
+      height: 0;
+      z-index: 1;
+      // background: linear-gradient(90deg, rgb(45, 161, 239), rgb(36, 60, 80));
+      background: linear-gradient(90deg, rgb(106, 167, 207), rgb(57, 104, 165));
+      transition: all 0.3s ease 0s;
+      z-index: -1;
+    }
+    &:hover::before {
+      height: 30px;
+    }
+  }
 }
 .nav--slider {
   @include fdCol;
@@ -55,11 +81,11 @@ const categories = computed(() => {
   height: 100%;
   margin-top: 80px;
   gap: 50px;
-}
-
-a {
-  @include jcCt-aiCt;
-  flex-wrap: nowrap;
-  cursor: pointer;
+  a {
+    position: relative;
+    @include jcCt-aiCt;
+    flex-wrap: nowrap;
+    cursor: pointer;
+  }
 }
 </style>

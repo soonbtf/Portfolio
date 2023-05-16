@@ -11,8 +11,8 @@
   @include jcCt-aiCt;
   width: 70px;
   & > img {
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 55px;
+    max-height: 55px;
   }
 }
 </style>

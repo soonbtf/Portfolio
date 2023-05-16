@@ -4,6 +4,7 @@
     <main>
       <Welcome />
       <About />
+      <Project />
     </main>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
@@ -19,6 +20,7 @@ import TheHeader from "@/components/header/TheHeader.vue";
 import SlideMenu from "@/components/header/SlideMenu.vue";
 import Welcome from "@/components/main/Welcome.vue";
 import About from "@/components/main/About.vue";
+import Project from "@/components/main/Project.vue";
 
 const variablesStore = useVariablesStore();
 const { width } = useWindowSize();
@@ -73,5 +75,11 @@ main {
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
+}
+
+.test {
+  min-width: 100%;
+  min-height: 1000px;
+  background-color: rgb(235, 235, 235);
 }
 </style>

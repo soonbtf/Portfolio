@@ -22,7 +22,7 @@ const paragraphes = computed(() => {
 });
 
 onMounted(() => {
-  variablesStore.categories.about = about.value;
+  variablesStore.categories.c1 = about.value;
 });
 </script>
 
@@ -31,8 +31,8 @@ section {
   @include fdCol;
   max-width: 1000px;
   gap: 20px;
-  margin: 100px 0 0 0;
   padding: 0 40px;
+  padding-top: 80px; // utile pour le scrollIntoView
   h2 {
     font-size: 45px;
     font-weight: 800;
