@@ -5,7 +5,7 @@
     <p>
       {{ $t("welcome.introduction") }}
     </p>
-    <GetInTouch />
+    <GetInTouch :text="$t('welcome.button')" />
   </section>
 </template>
 
@@ -24,12 +24,6 @@ section {
     rgba(197, 194, 247, 1) 50%,
     rgba(122, 140, 231, 1) 100%
   );
-  // background: linear-gradient(
-  //   90deg,
-  //   rgb(244, 217, 247) 0%,
-  //   rgb(199, 194, 247) 50%,
-  //   rgb(122, 187, 231) 100%
-  // );
   color: #212529;
   & p {
     font-size: 1.1rem;

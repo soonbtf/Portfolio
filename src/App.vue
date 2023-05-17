@@ -76,10 +76,4 @@ main {
   width: 100%;
   min-height: 100vh;
 }
-
-.test {
-  min-width: 100%;
-  min-height: 1000px;
-  background-color: rgb(235, 235, 235);
-}
 </style>
