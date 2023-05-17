@@ -6,6 +6,9 @@
       <About />
       <MyWorks />
     </main>
+    <footer>
+      <ContactForm />
+    </footer>
     <Transition>
       <SlideMenu v-if="variablesStore.menuIsOpen" />
     </Transition>
@@ -21,6 +24,7 @@ import SlideMenu from "@/components/header/SlideMenu.vue";
 import Welcome from "@/components/main/Welcome.vue";
 import About from "@/components/main/About.vue";
 import MyWorks from "@/components/main/MyWorks.vue";
+import ContactForm from "@/components/footer/ContactForm.vue";
 
 const variablesStore = useVariablesStore();
 const { width } = useWindowSize();
