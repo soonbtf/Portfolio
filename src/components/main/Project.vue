@@ -10,7 +10,11 @@
         <ul class="project__techno">
           <li v-for="techno in project.technos">{{ techno }}</li>
         </ul>
-        <div class="button">
+        <div
+          class="button"
+          @click="openNewTab(project.link)"
+          :title="project.link"
+        >
           <GetInTouch :text="'View project'" :type="'repo'" />
         </div>
       </div>
@@ -28,6 +32,10 @@ import GetInTouch from "@/components/main/GetInTouch.vue";
 const { t } = useI18n();
 const colors = ["#001F37", "#222222"];
 
+const openNewTab = (link: string): void => {
+  window.open(link, "_blank");
+};
+
 const projects = computed(() => {
   return Object.keys(data.en.projects).map((projectKey) => {
     const project =
@@ -36,6 +44,7 @@ const projects = computed(() => {
       name: t(`projects.${projectKey}.title`),
       description: t(`projects.${projectKey}.description`),
       img: t(`projects.${projectKey}.img`),
+      link: t(`projects.${projectKey}.link`),
       technos: Object.keys(project.technos).map((technoKey) =>
         t(`projects.${projectKey}.technos.${technoKey}`)
       ),
@@ -55,7 +64,7 @@ section {
 article {
   @include fdCol-aiCt;
   position: relative;
-  max-width: 1400px;
+  width: 1400px;
   height: 100%;
   gap: 50px;
   padding: 0 2%;
@@ -113,12 +122,8 @@ article {
   article {
     display: flex;
     flex-direction: row;
-    align-items: center;
     & .text {
       display: flex;
-      // flex-direction: column;
-      // justify-content: flex-start;
-      // align-items: flex-start;
       width: 50%;
       min-width: 350px;
       & h2 {

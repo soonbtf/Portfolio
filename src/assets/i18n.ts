@@ -38,7 +38,7 @@ export const data = {
       },
       project2: {
         title: "This website",
-        description: "Description of project 2",
+        description: "You are here",
         img: "/src/assets/thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         technos: {
@@ -89,7 +89,7 @@ export const data = {
       },
       project2: {
         title: "Ce site",
-        description: "Description du projet 2",
+        description: "Vous êtes ici",
         img: "/src/assets/thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         technos: {
