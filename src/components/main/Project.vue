@@ -85,9 +85,9 @@ article {
       list-style-type: none;
       gap: 20px;
       li {
+        @include jcCt;
         width: max-content;
         width: 100px;
-        text-align: center;
         color: rgb(32, 32, 32);
         background: linear-gradient(
           90deg,
@@ -99,10 +99,6 @@ article {
         font-size: 0.8rem;
         transition: 300ms;
         font-weight: 700;
-        cursor: pointer;
-        &:hover {
-          transform: scale(1.1);
-        }
       }
     }
   }
