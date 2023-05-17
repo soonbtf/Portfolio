@@ -48,8 +48,8 @@ const projects = computed(() => {
 section {
   @include jcCt;
   width: 100%;
-  height: 650px;
-  max-height: 650px;
+  height: 750px;
+  max-height: 750px;
   padding: 2%;
 }
 article {
@@ -60,7 +60,7 @@ article {
   gap: 50px;
   padding: 0 2%;
   & > .text {
-    @include fdCol;
+    @include fdCol-aiCt;
     width: 100%;
     flex-wrap: wrap;
     color: white;
@@ -100,42 +100,31 @@ article {
   & > img {
     @include jcCt;
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
   }
   .button {
-    width: 275px;
+    width: 200px;
     align-self: center;
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1180px) {
   article {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2%;
-    & ul {
-      @include fdCol;
-    }
     & .text {
-      max-width: 35%;
+      display: flex;
+      // flex-direction: column;
+      // justify-content: flex-start;
+      // align-items: flex-start;
+      width: 50%;
+      min-width: 350px;
+      & h2 {
+        font-size: 3rem;
+      }
     }
-    & img {
-      margin: 0;
-      // height: 150%;
-    }
-  }
-}
-
-@media screen and (min-width: 1300px) {
-  article {
-    gap: 200px;
-    // padding: 80px 20%;
-    & ul {
-      @include fdCol;
-    }
-
     & img {
       flex: 1;
       margin: 0;
