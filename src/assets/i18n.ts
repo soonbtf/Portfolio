@@ -49,6 +49,10 @@ export const data = {
         },
       },
     },
+    misc: {
+      viewButton: "View project",
+      watchDemo: "Watch the demo",
+    },
   },
   fr: {
     categories: {
@@ -78,6 +82,7 @@ export const data = {
           "TinyTeams est un réseau social d'entreprise s'inspirant du réseau social Facebook.",
         img: "/src/assets/tinyteams.png",
         link: "https://github.com/soonbtf/TinyTeams",
+        button: "Voir le projet",
         technos: {
           t1: "Vue 3",
           t2: "Express",
@@ -92,6 +97,7 @@ export const data = {
         description: "Vous êtes ici 🚩",
         img: "/src/assets/thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
+        button: "Voir le projet",
         technos: {
           t1: "Vue 3",
           t2: "TypeScript",
@@ -99,6 +105,10 @@ export const data = {
           t4: "VueUse",
         },
       },
+    },
+    misc: {
+      viewButton: "Voir le projet",
+      watchDemo: "Voir la démo",
     },
   },
 };

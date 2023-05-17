@@ -1,6 +1,6 @@
 <template>
   <section id="myWorks">
-    <h3>My projects</h3>
+    <h3>{{ $t("categories.c2") }}</h3>
     <Project />
   </section>
 </template>

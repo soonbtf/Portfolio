@@ -10,12 +10,18 @@
         <ul class="project__techno">
           <li v-for="techno in project.technos">{{ techno }}</li>
         </ul>
-        <div
-          class="button"
-          @click="openNewTab(project.link)"
-          :title="project.link"
-        >
-          <GetInTouch :text="'View project'" :type="'repo'" />
+        <div class="button" :title="project.link">
+          <GetInTouch
+            @click="openNewTab(project.link)"
+            :text="$t('misc.viewButton')"
+            :type="'repo'"
+          />
+          <GetInTouch
+            @click="openNewTab()"
+            v-if="project.name === 'TinyTeams'"
+            :text="$t('misc.watchDemo')"
+            :type="'repo'"
+          />
         </div>
       </div>
       <img :src="project.img" alt="" srcset="" />
@@ -32,8 +38,12 @@ import GetInTouch from "@/components/main/GetInTouch.vue";
 const { t } = useI18n();
 const colors = ["#001F37", "#222222"];
 
-const openNewTab = (link: string): void => {
-  window.open(link, "_blank");
+const openNewTab = (link?: string): void => {
+  if (link) {
+    window.open(link, "_blank");
+  } else {
+    window.open("https://www.youtube.com/watch?v=yxCXfmS1xC4", "_blank");
+  }
 };
 
 const projects = computed(() => {
@@ -109,7 +119,9 @@ article {
     width: 100%;
   }
   .button {
-    width: 200px;
+    @include jcCt;
+    gap: 20px;
+    width: 400px;
     align-self: center;
   }
 }
