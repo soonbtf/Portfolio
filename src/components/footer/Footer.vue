@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>
-      Made with ❤️ - Insipired by
+      Made with ❤️ | Insipired by
       <a href="https://chaseohlson.com/" target="_blank" class="portfolio"
         >Chase Ohlson</a
       >
@@ -23,7 +23,7 @@ footer {
   gap: 15px;
   width: 100%;
   height: 140px;
-  background-color: rgb(21, 20, 26);
+  background-color: #15141a;
   color: white;
   a {
     text-decoration: none;

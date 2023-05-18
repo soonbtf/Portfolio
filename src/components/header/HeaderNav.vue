@@ -14,7 +14,6 @@ const { t } = useI18n();
 
 const variablesStore = useVariablesStore();
 const nav = ref<HTMLElement | null>(null);
-
 const isMenuOpen = computed(() => {
   return variablesStore.menuIsOpen;
 });
@@ -47,11 +46,11 @@ const categories = computed(() => {
   width: max-content;
   gap: 30px;
   a {
-    position: relative;
     @include jcCt-aiCt;
+    position: relative;
     flex-wrap: nowrap;
-    cursor: pointer;
     transition: all 0.3s ease 0s;
+    cursor: pointer;
     &:hover {
       color: white;
     }
@@ -73,18 +72,19 @@ const categories = computed(() => {
 }
 .nav--slider {
   @include fdCol;
-  width: 100%;
-  background-color: #ffffff;
   position: fixed;
-  padding: 20px 20px 0;
+  width: 100%;
   height: 100%;
+  padding: 20px 20px 0;
   margin-top: 80px;
+  background-color: #ffffff;
   gap: 50px;
-  a {
-    position: relative;
-    @include jcCt-aiCt;
-    flex-wrap: nowrap;
-    cursor: pointer;
-  }
+}
+
+a {
+  @include jcCt-aiCt;
+  position: relative;
+  flex-wrap: nowrap;
+  cursor: pointer;
 }
 </style>

@@ -52,6 +52,8 @@ export const data = {
     misc: {
       viewButton: "View project",
       watchDemo: "Watch the demo",
+      inputName: "NAME *",
+      popupMsg: "Messange sent !",
     },
   },
   fr: {
@@ -109,6 +111,8 @@ export const data = {
     misc: {
       viewButton: "Voir le projet",
       watchDemo: "Voir la démo",
+      inputName: "NOM *",
+      popupMsg: "Message envoyé !",
     },
   },
 };

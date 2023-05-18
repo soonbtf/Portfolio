@@ -2,11 +2,17 @@
   <section id="contact">
     <form ref="form" @submit.prevent="sendMessage">
       <h3>CONTACT</h3>
-      <input v-model="name" type="text" placeholder="NAME / NOM *" required />
+      <input
+        v-model="name"
+        :placeholder="$t('misc.inputName')"
+        type="text"
+        required
+      />
       <input v-model="email" type="email" placeholder="EMAIL *" required />
       <textarea v-model="message" placeholder="MESSAGE *" required></textarea>
       <button type="submit">SEND MESSAGE</button>
     </form>
+    <div class="popup" v-if="showPopup">{{ $t("misc.popupMsg") }}</div>
   </section>
 </template>
 
@@ -20,6 +26,7 @@ const form = ref<HTMLElement | null>(null);
 const name = ref("");
 const email = ref("");
 const message = ref("");
+const showPopup = ref(false);
 
 const sendMessage = () => {
   emailjs
@@ -34,13 +41,19 @@ const sendMessage = () => {
       "I70RKpmZdwqxkUKKs"
     )
     .then((res) => {
-      alert("Message sent successfully!");
-      console.log(res);
+      toggleShowPopup();
       name.value = "";
       email.value = "";
       message.value = "";
     })
     .catch((err) => console.log(err));
+};
+
+const toggleShowPopup = () => {
+  showPopup.value = true;
+  setTimeout(() => {
+    showPopup.value = false;
+  }, 3000);
 };
 
 onMounted(() => {
@@ -94,6 +107,43 @@ form {
     background-color: transparent;
     border: 1px solid #212529;
     cursor: pointer;
+  }
+}
+
+.popup {
+  @include jcCt-aiCt;
+  position: absolute;
+  bottom: 170px;
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 35px;
+  border-radius: 2px;
+  background-color: rgb(98, 179, 98);
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 5px 0 20px var(--shadowColor);
+  color: white;
+  z-index: 100;
+  opacity: 0;
+  animation: popup 3s ease-in-out;
+}
+
+@keyframes popup {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  3% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  95% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
   }
 }
 </style>

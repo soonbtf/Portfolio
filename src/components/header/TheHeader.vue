@@ -65,8 +65,8 @@ header {
   z-index: 1000;
   color: #212529;
   .container {
-    position: relative;
     @include jcCt-aiCt;
+    position: relative;
     width: 1400px;
     height: 80px;
     & > .navigation {

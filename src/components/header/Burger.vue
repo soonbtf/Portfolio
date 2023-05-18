@@ -1,14 +1,12 @@
 <template>
   <div class="icon" @click="openMenu">
-    <div class="line" v-for="div in 3"></div>
+    <div class="line" v-for="line in 3"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useVariablesStore } from "@/stores/store";
-
 const variablesStore = useVariablesStore();
-
 const openMenu = (): void => {
   variablesStore.menuIsOpen = !variablesStore.menuIsOpen;
 };

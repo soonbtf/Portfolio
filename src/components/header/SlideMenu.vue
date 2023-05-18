@@ -5,7 +5,6 @@
 <script setup lang="ts">
 import { useVariablesStore } from "@/stores/store";
 import HeaderNav from "@/components/header/HeaderNav.vue";
-
 const variablesStore = useVariablesStore();
 </script>
 

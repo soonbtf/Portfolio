@@ -23,8 +23,8 @@ button {
 }
 
 .repo {
-  border-color: rgb(253, 253, 253);
-  color: rgb(255, 255, 255);
+  border-color: white;
+  color: white;
 }
 
 @media screen and (min-width: 768px) {
