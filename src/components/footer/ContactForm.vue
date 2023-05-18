@@ -1,6 +1,6 @@
 <template>
   <section>
-    <form :submit="sendMessage(name, email, message)">
+    <form @submit.prevent="sendMessage(name, email, message)">
       <h3>CONTACT</h3>
       <input type="text" placeholder="NAME / NOM *" v-model="name" required />
       <input type="email" placeholder="EMAIL *" v-model="email" required />
@@ -11,18 +11,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
+// @ts-ignore
+import { Email } from "@/assets/smtp.js";
 
 const name = ref("");
 const email = ref("");
 const message = ref("");
 
 const sendMessage = (name: string, email: string, message: string) => {
-  console.log(name, email, message);
+  Email.send({
+    Host: "smtp.elasticemail.com",
+    Username: "birlakhdar.mehdi@gmail.com",
+    Password: "0A05CE00B8C3FE6CC34B97A9F610457D4CA5",
+    To: "birlakhdar.mehdi@gmail.com",
+    From: "birlakhdar.mehdi@gmail.com",
+    Subject: `Message from ${name} - ${email}`,
+    Body: message,
+  }).then((message: string) => alert(message));
 };
-const inputs = computed(() => {
-  return 4;
-});
 </script>
 
 <style scoped lang="scss">
