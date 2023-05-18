@@ -28,7 +28,7 @@ export const data = {
         link: "https://github.com/soonbtf/TinyTeams",
         technos: {
           t1: "Vue 3",
-          t2: "Express",
+          t2: "Express.js",
           t3: "Sequelize",
           t4: "Socket.io",
           t5: "SQLite",
@@ -80,12 +80,12 @@ export const data = {
       project1: {
         title: "TinyTeams",
         description:
-          "TinyTeams est un réseau social d'entreprise s'inspirant du réseau social Facebook.",
+          "TinyTeams est un réseau social d'entreprise s'inspirant de Facebook.",
         link: "https://github.com/soonbtf/TinyTeams",
         button: "Voir le projet",
         technos: {
           t1: "Vue 3",
-          t2: "Express",
+          t2: "Express.js",
           t3: "Sequelize",
           t4: "Socket.io",
           t5: "SQLite",
