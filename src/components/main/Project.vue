@@ -42,9 +42,9 @@ const colors = ["#001F37", "#222222"];
 
 const getImage = (index: number) => {
   if (index === 0) {
-    return thisPortfolio;
-  } else {
     return tinyteams;
+  } else {
+    return thisPortfolio;
   }
 };
 
