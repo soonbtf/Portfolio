@@ -25,7 +25,7 @@ export const data = {
         title: "TinyTeams",
         description:
           "TinyTeams is a corporate social network inspired by Facebook.",
-        img: "/src/assets/tinyteams.png",
+        img: "tinyteams.png",
         link: "https://github.com/soonbtf/TinyTeams",
         technos: {
           t1: "Vue 3",
@@ -39,7 +39,7 @@ export const data = {
       project2: {
         title: "This website",
         description: "You are here 🚩",
-        img: "/src/assets/thisPortfolio.png",
+        img: "thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         technos: {
           t1: "Vue 3",
@@ -53,6 +53,7 @@ export const data = {
       viewButton: "View project",
       watchDemo: "Watch the demo",
       inputName: "NAME *",
+      sendMessageBtn: "SEND MESSAGE",
       popupMsg: "Messange sent !",
     },
   },
@@ -82,7 +83,7 @@ export const data = {
         title: "TinyTeams",
         description:
           "TinyTeams est un réseau social d'entreprise s'inspirant du réseau social Facebook.",
-        img: "/src/assets/tinyteams.png",
+        img: "tinyteams.png",
         link: "https://github.com/soonbtf/TinyTeams",
         button: "Voir le projet",
         technos: {
@@ -97,7 +98,7 @@ export const data = {
       project2: {
         title: "Ce site",
         description: "Vous êtes ici 🚩",
-        img: "/src/assets/thisPortfolio.png",
+        img: "thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         button: "Voir le projet",
         technos: {
@@ -112,6 +113,7 @@ export const data = {
       viewButton: "Voir le projet",
       watchDemo: "Voir la démo",
       inputName: "NOM *",
+      sendMessageBtn: "ENVOYER",
       popupMsg: "Message envoyé !",
     },
   },

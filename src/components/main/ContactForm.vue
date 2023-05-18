@@ -10,7 +10,7 @@
       />
       <input v-model="email" type="email" placeholder="EMAIL *" required />
       <textarea v-model="message" placeholder="MESSAGE *" required></textarea>
-      <button type="submit">SEND MESSAGE</button>
+      <button type="submit">{{ $t("misc.sendMessageBtn") }}</button>
     </form>
     <div class="popup" v-if="showPopup">{{ $t("misc.popupMsg") }}</div>
   </section>

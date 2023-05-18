@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { createI18n } from "vue-i18n";
 import App from "@/App.vue";
-import { data } from "@/assets/i18n";
+import { data } from "@/i18n";
 
 const app = createApp(App);
 const pinia = createPinia();

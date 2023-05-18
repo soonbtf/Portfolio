@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/Portfolio/",
   plugins: [vue()],
   resolve: {
     alias: {
@@ -15,7 +15,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/assets/_var.scss";',
+        additionalData: '@import "@/_var.scss";',
       },
     },
   },

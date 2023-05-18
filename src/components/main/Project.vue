@@ -24,14 +24,14 @@
           />
         </div>
       </div>
-      <img :src="project.img" alt="" srcset="" />
+      <img :src="`/public/assets/${project.img}`" alt="" srcset="" />
     </article>
   </section>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { data } from "@/assets/i18n";
+import { data } from "@/i18n";
 import { useI18n } from "vue-i18n";
 import GetInTouch from "@/components/main/GetInTouch.vue";
 
