@@ -87,6 +87,7 @@ article {
   height: 100%;
   gap: 50px;
   padding: 0 2%;
+  text-align: center;
   & > .text {
     @include fdCol-aiCt;
     width: 100%;
