@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="contact">
     <form ref="form" @submit.prevent="sendMessage">
       <h3>CONTACT</h3>
       <input v-model="name" type="text" placeholder="NAME / NOM *" required />
@@ -11,11 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useVariablesStore } from "@/stores/store";
 import emailjs from "@emailjs/browser";
 
+const variablesStore = useVariablesStore();
 const form = ref<HTMLElement | null>(null);
-
 const name = ref("");
 const email = ref("");
 const message = ref("");
@@ -41,18 +42,22 @@ const sendMessage = () => {
     })
     .catch((err) => console.log(err));
 };
+
+onMounted(() => {
+  variablesStore.categories.c3 = document.querySelector("#contact");
+});
 </script>
 
 <style scoped lang="scss">
 section {
   @include fdCol-jcCt-aiCt;
-  min-height: 500px;
+  min-height: 600px;
   width: 100%;
   padding: 70px 20px;
   h3 {
     width: 100%;
     font-size: 3rem;
-    color: rgb(34, 32, 32);
+    color: rgb(48, 44, 44);
   }
 }
 

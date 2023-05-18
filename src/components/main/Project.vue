@@ -65,11 +65,11 @@ const projects = computed(() => {
 
 <style scoped lang="scss">
 section {
-  @include jcCt;
+  @include jcCt-aiCt;
   width: 100%;
-  height: 750px;
+  min-height: 650px;
   max-height: 750px;
-  padding: 2%;
+  padding: 3% 2%;
 }
 article {
   @include fdCol-aiCt;
@@ -120,8 +120,10 @@ article {
   }
   .button {
     @include jcCt;
+    flex-wrap: wrap;
     gap: 20px;
-    width: 400px;
+    max-width: 100%;
+    margin-top: 25px;
     align-self: center;
   }
 }

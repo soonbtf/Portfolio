@@ -13,10 +13,9 @@ const props = defineProps({
 
 <style scoped lang="scss">
 button {
-  width: 100%;
+  width: 200px;
   height: 50px;
   padding: 10px 20px;
-  margin-top: 20px;
   font-size: 16px;
   background-color: transparent;
   border: 1px solid #212529;

@@ -9,7 +9,6 @@ export const useVariablesStore = defineStore("variable", () => {
     c1: ref<HTMLElement | null>(null),
     c2: ref<HTMLElement | null>(null),
     c3: ref<HTMLElement | null>(null),
-    c4: ref<HTMLElement | null>(null),
   };
 
   return { isDesktop, menuIsOpen, language, categories };

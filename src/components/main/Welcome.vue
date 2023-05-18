@@ -1,16 +1,25 @@
 <template>
   <section>
     <p>{{ $t("welcome.title") }}</p>
-    <h2>MEHDI BIRLAKHDAR</h2>
-    <p>
+    <h1>MEHDI BIRLAKHDAR</h1>
+    <p class="presentation">
       {{ $t("welcome.introduction") }}
     </p>
-    <GetInTouch :text="$t('welcome.button')" />
+    <GetInTouch :text="$t('welcome.button')" @click="scrollTo" />
   </section>
 </template>
 
 <script setup lang="ts">
 import GetInTouch from "@/components/main/GetInTouch.vue";
+import { useVariablesStore } from "@/stores/store";
+
+const variablesStore = useVariablesStore();
+const scrollTo = (el: string): void => {
+  variablesStore.categories.c3?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 </script>
 
 <style scoped lang="scss">
@@ -30,11 +39,14 @@ section {
     line-height: 1.5rem;
     margin-bottom: 1rem;
   }
-  & h2 {
+  & h1 {
     font-size: 3.5rem;
     line-height: 3.5rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+  }
+  & .presentation {
+    margin-bottom: 30px;
   }
 }
 
