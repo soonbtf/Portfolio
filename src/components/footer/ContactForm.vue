@@ -1,10 +1,10 @@
 <template>
   <section>
-    <form @submit.prevent="sendMessage(name, email, message)">
+    <form ref="form" @submit.prevent="sendMessage">
       <h3>CONTACT</h3>
-      <input type="text" placeholder="NAME / NOM *" v-model="name" required />
-      <input type="email" placeholder="EMAIL *" v-model="email" required />
-      <textarea placeholder="MESSAGE *" v-model="message" required></textarea>
+      <input v-model="name" type="text" placeholder="NAME / NOM *" required />
+      <input v-model="email" type="email" placeholder="EMAIL *" required />
+      <textarea v-model="message" placeholder="MESSAGE *" required></textarea>
       <button type="submit">SEND MESSAGE</button>
     </form>
   </section>
@@ -12,23 +12,34 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-// @ts-ignore
-import { Email } from "@/assets/smtp.js";
+import emailjs from "@emailjs/browser";
+
+const form = ref<HTMLElement | null>(null);
 
 const name = ref("");
 const email = ref("");
 const message = ref("");
 
-const sendMessage = (name: string, email: string, message: string) => {
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "birlakhdar.mehdi@gmail.com",
-    Password: "0A05CE00B8C3FE6CC34B97A9F610457D4CA5",
-    To: "birlakhdar.mehdi@gmail.com",
-    From: "birlakhdar.mehdi@gmail.com",
-    Subject: `Message from ${name} - ${email}`,
-    Body: message,
-  }).then((message: string) => alert(message));
+const sendMessage = () => {
+  emailjs
+    .send(
+      "service_xufnxq8",
+      "template_yo9qmic",
+      {
+        from_name: name.value,
+        message: message.value,
+        from_email: email.value,
+      },
+      "I70RKpmZdwqxkUKKs"
+    )
+    .then((res) => {
+      alert("Message sent successfully!");
+      console.log(res);
+      name.value = "";
+      email.value = "";
+      message.value = "";
+    })
+    .catch((err) => console.log(err));
 };
 </script>
 
