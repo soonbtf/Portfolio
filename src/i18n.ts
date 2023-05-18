@@ -25,7 +25,6 @@ export const data = {
         title: "TinyTeams",
         description:
           "TinyTeams is a corporate social network inspired by Facebook.",
-        img: "tinyteams.png",
         link: "https://github.com/soonbtf/TinyTeams",
         technos: {
           t1: "Vue 3",
@@ -39,7 +38,6 @@ export const data = {
       project2: {
         title: "This website",
         description: "You are here 🚩",
-        img: "thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         technos: {
           t1: "Vue 3",
@@ -83,7 +81,6 @@ export const data = {
         title: "TinyTeams",
         description:
           "TinyTeams est un réseau social d'entreprise s'inspirant du réseau social Facebook.",
-        img: "tinyteams.png",
         link: "https://github.com/soonbtf/TinyTeams",
         button: "Voir le projet",
         technos: {
@@ -98,7 +95,6 @@ export const data = {
       project2: {
         title: "Ce site",
         description: "Vous êtes ici 🚩",
-        img: "thisPortfolio.png",
         link: "https://github.com/soonbtf/Portfolio",
         button: "Voir le projet",
         technos: {

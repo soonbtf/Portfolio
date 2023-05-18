@@ -24,7 +24,7 @@
           />
         </div>
       </div>
-      <img :src="`../../../public/assets/${project.img}`" alt="projectImg" />
+      <img :src="getImage(index)" alt="projectImg" />
     </article>
   </section>
 </template>
@@ -34,9 +34,19 @@ import { computed } from "vue";
 import { data } from "@/i18n";
 import { useI18n } from "vue-i18n";
 import GetInTouch from "@/components/main/GetInTouch.vue";
+import tinyteams from "../../../public/assets/tinyteams.png";
+import thisPortfolio from "../../../public/assets/thisPortfolio.png";
 
 const { t } = useI18n();
 const colors = ["#001F37", "#222222"];
+
+const getImage = (index: number) => {
+  if (index === 0) {
+    return thisPortfolio;
+  } else {
+    return tinyteams;
+  }
+};
 
 const openNewTab = (link?: string): void => {
   if (link) {
@@ -53,7 +63,6 @@ const projects = computed(() => {
     return {
       name: t(`projects.${projectKey}.title`),
       description: t(`projects.${projectKey}.description`),
-      img: t(`projects.${projectKey}.img`),
       link: t(`projects.${projectKey}.link`),
       technos: Object.keys(project.technos).map((technoKey) =>
         t(`projects.${projectKey}.technos.${technoKey}`)
