@@ -24,7 +24,7 @@
           />
         </div>
       </div>
-      <img :src="`/public/assets/${project.img}`" alt="" srcset="" />
+      <img :src="`../../../public/assets/${project.img}`" alt="projectImg" />
     </article>
   </section>
 </template>
