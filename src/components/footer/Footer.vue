@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>
-      Made with ❤️ | Insipired by
+      Made with ❤️ | Inspired by
       <a href="https://chaseohlson.com/" target="_blank" class="portfolio"
         >Chase Ohlson</a
       >

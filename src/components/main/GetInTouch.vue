@@ -19,12 +19,19 @@ button {
   font-size: 16px;
   background-color: transparent;
   border: 1px solid #212529;
+  transition: 300ms;
   cursor: pointer;
+  &:hover {
+    background-color: #a0819d71;
+  }
 }
 
 .repo {
   border-color: white;
   color: white;
+  &:hover {
+    background-color: #3c3d3d54;
+  }
 }
 
 @media screen and (min-width: 768px) {

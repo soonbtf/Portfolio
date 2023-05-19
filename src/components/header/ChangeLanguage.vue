@@ -1,17 +1,23 @@
 <template>
   <div>
     <button @click="changeLanguage">
-      {{ variablesStore.language }}
+      {{ langue }}
     </button>
     <div class="divider"></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { useVariablesStore } from "@/stores/store";
 import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
 const variablesStore = useVariablesStore();
+
+const langue = computed(() => {
+  if (locale.value === "en") return "FR";
+  else return "EN";
+});
 
 const changeLanguage = (): void => {
   locale.value === "en" ? (locale.value = "fr") : (locale.value = "en");

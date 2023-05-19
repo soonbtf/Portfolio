@@ -90,6 +90,9 @@ form {
       color: black;
       font-size: 1.2em;
     }
+    &:focus::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
   & input {
     flex: 1;
