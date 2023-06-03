@@ -25,4 +25,7 @@ export default defineConfig({
     __VUE_I18N_LEGACY_API__: false,
     __INTLIFY_PROD_DEVTOOLS__: false,
   },
+  build: {
+    manifest: true, // Permet de générer un manifest.json
+  },
 });
